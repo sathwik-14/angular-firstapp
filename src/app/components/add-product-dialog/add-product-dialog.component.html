@@ -1,0 +1,63 @@
+<button class="btn btn-sm btn-primary" (click)="showModal()">Add&nbsp;&nbsp;<i class="fa fa-solid fa-circle-plus"></i></button>
+<div class="modal" [ngClass]="{ 'd-block': showmodal }">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h1 class="modal-title">Add New Product</h1>
+
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="productId">ID</label>
+            <input type="text" class="form-control" id="productId" placeholder="Enter ID"  [ngModelOptions]="{ standalone: true }" [(ngModel)]="productId">
+          </div>
+          <div class="form-group mt-3">
+            <label for="productName">Name</label>
+            <input type="text" class="form-control" id="productName" placeholder="Enter Name"  [ngModelOptions]="{ standalone: true }" [(ngModel)]="productName">
+          </div>
+          <div class="form-group mt-3">
+            <label for="productDescription">Description</label>
+            <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter Description"  [ngModelOptions]="{ standalone: true }" [(ngModel)]="productDescription"></textarea>
+          </div>
+          <div class="form-group mt-3">
+            <label for="productAmount">Amount</label>
+            <input type="text" class="form-control" id="productAmount" placeholder="Enter Amount"  [ngModelOptions]="{ standalone: true }" [(ngModel)]="productAmount">
+          </div>
+          <div class="d-flex justify-content-end">
+          <button  class="btn btn-secondary mt-3" (click)="showModal()">Cancel</button>&nbsp;
+          <button type="submit" class="btn btn-primary mt-3" (click)="submitForm()">Submit</button>
+        </div>
+
+        </form>
+
+
+    <!-- <form [formGroup]="productForm" >
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" required>
+        <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
+          Name is required.
+        </div>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" formControlName="description" required>
+        <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched">
+          Description is required.
+        </div>
+      </div>
+      <div>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" formControlName="amount" required>
+        <div *ngIf="productForm.controls['amount'].invalid && productForm.controls['amount'].touched">
+          Amount is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="productForm.invalid">Add</button>
+    </form> -->
+      </div>
+
+    </div>
+  </div>
+</div>

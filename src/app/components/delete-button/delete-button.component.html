@@ -1,0 +1,17 @@
+<button class="btn btn-sm btn-danger" (click)="showConfirmodal()"><i class="fa-solid fa-trash"></i></button>
+<div class="modal" [ngClass]="{ 'd-block': showmodal }">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger ">
+        <h1 class="modal-title">Delete Product : {{productId}}</h1>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="showConfirmodal()">Cancel</button>
+
+        <button type="button" class="btn btn-danger" (click)="onDelete()">Confirm</button>
+
+      </div>
+    </div>
+  </div>
+</div>

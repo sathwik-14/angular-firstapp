@@ -1,0 +1,45 @@
+<div class="row m-auto ">
+  <div class="col col-lg-2 col-md-12 col-xs-12 sidebar bg-dark">
+    <div class="item   d-flex justify-content-between" [ngClass]="{'lightdark':showTable}" (click)="toggleTable()">
+      <span class="text-white">Products</span>
+      <i class="fa-solid text-white" [ngClass]="{'fa-chevron-right': !showTable, 'fa-chevron-left': showTable}"></i>
+    </div>
+  </div>
+  <div class="col col-lg-10 col-md-12 col-xs-12 p-3 p-lg-5 lightdark" *ngIf="showTable">
+    <div class="tablebar d-flex justify-content-end p-3 p-lg-5" >
+      <add-product-dialog (dataSubmitted)="handleData($event)"></add-product-dialog>
+
+    </div>
+    <!-- Button to toggle the modal -->
+
+
+<!-- Modal markup -->
+
+
+    <div class="h1  text-center" *ngIf="products.length === 0">No items found.</div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Amount (INR)</th>
+          <th scope="col">Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.amount }}</td>
+          <td>
+            <!-- Delete button component -->
+            <app-delete-button [productId]="product.name"  (delete)="deleteProduct(product.id)"></app-delete-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
